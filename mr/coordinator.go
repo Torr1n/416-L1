@@ -7,6 +7,7 @@ import "net/rpc"
 import "net/http"
 import "sync"
 import "time"
+import "fmt"
 
 
 type Coordinator struct {
@@ -166,6 +167,8 @@ func (c *Coordinator) Done() bool {
 //
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
+
+	fmt.Printf("Coordinator starting with %d files/map tasks and %d reduce tasks\n", len(files), nReduce)
 
 	// Your code here.
 	c.nReduce = nReduce
